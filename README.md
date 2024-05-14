@@ -36,13 +36,15 @@ sudo mv tr-tr_windows_10_enterprise_ltsc_2021_x64_dvd_e55b1896.iso windows.iso
 
 # Şimdi sanal makineyi kurmak kaldı.
 
+
+```bash
 vboxmanage createvm --name "Windows" --ostype "Windows10_64" --register
 vboxmanage modifyvm "Windows" --memory 12288 --vram 128
 vboxmanage storagectl "Windows" --name "SATA Controller" --add sata --controller IntelAhci
 vboxmanage storageattach "Windows" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "windows.vdi"
 vboxmanage storageattach "Windows" --storagectl "SATA Controller" --port 1 --device 0 --type dvddrive --medium "windows.iso"
 vboxmanage startvm "Windows" --type headless
-
+```
 
 
 
